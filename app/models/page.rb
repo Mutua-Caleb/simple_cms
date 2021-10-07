@@ -1,4 +1,7 @@
 class Page < ApplicationRecord
+  
+  acts_as_list :scope => :subject
+
 
   belongs_to :subject
   has_many :sections

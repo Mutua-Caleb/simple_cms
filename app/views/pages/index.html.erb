@@ -1,8 +1,11 @@
+<% @page_title = 'all pages' %>
+
+<%= link_to('<< Back to subjects', subjects_path, class:  'back-link')%>
 
 <div class="pages index">
 <h2>pages</h2>
 
-<%= link_to('add new page', new_page_path, class:  'action new')%>
+<%= link_to('add new page', new_page_path(:subject_id => @subject.id), class:  'action new')%>
 
 <table class='listing' summary = 'Page list'>
   <tr class = 'header'>
@@ -26,9 +29,10 @@
     <td  class = 'center'> <%= status_tag(page.visible) %> </td>
     <td class= 'center'> <%= page.sections.size %> </td>
     <td class= 'actions'> 
-     <%= link_to("Show", page_path(page), class: "action show") %>
-     <%= link_to("Edit", edit_page_path(page), class: 'action edit') %>
-     <%= link_to("Delete", delete_page_path(page), class: 'action delete') %>
+     <%= link_to("View sections", sections_path(:page_id => page.id), class: "action show") %>
+     <%= link_to("Show", page_path(page, :subject_id => @subject.id), class: "action show") %>
+     <%= link_to("Edit", edit_page_path(page, :subject_id => @subject.id), class: 'action edit') %>
+     <%= link_to("Delete", delete_page_path(page, :subject_id => @subject.id), class: 'action delete') %>
     </td>
   </tr>
 

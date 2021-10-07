@@ -6,8 +6,8 @@
       </tr>
 
       <tr>
-      <th>Subject ID</th>
-      <td><%= f.select(:subject_id, @subjects.map {|s| [s.name, s.id]})%></td>
+      <th>Subject</th>
+      <td><%= f.object.subject.name%></td>
       </tr>
 
       <tr>
